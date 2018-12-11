@@ -59,6 +59,7 @@ class Main extends PluginBase implements listener {
                 if ($sender instanceof Player) {
                     $sender->sendMessage(TextFormat::GOLD . "Locked on target!");
                     $this->hasPc[$sender->getName()] = true;
+                    $world = $player->getLevel()->getFolderName();
                     $player = $this->getServer()->getPlayer($args[0]);
                     $zz = $player->getZ();
                     $xx = $player->getX();
