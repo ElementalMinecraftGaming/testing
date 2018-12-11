@@ -26,10 +26,11 @@ class Main extends PluginBase implements listener {
                     if (isset($args[0])) {
                         $sender->sendMessage(TextFormat::GOLD . "Remember to add the name or you'll get an error");
                         $player = $this->getServer()->getPlayer($args[0]);
+                        $levels = $player->getLevel()->getFolderName();
                         $z = $player->getZ();
                         $x = $player->getX();
                         $y = $player->getY();
-                        $sender->sendMessage(TextFormat::GOLD . "Coordinates are: $x, $y, $z");
+                        $sender->sendMessage(TextFormat::GOLD . "Coordinates are: $levels, $x, $y, $z");
                         return true;
                     } else {
                         $sender->sendMessage(TextFormat::RED . "Incorrect potato!");
@@ -44,7 +45,8 @@ class Main extends PluginBase implements listener {
                     $a = $sender->getZ();
                     $b = $sender->getX();
                     $c = $sender->getY();
-                    $sender->sendMessage(TextFormat::GOLD . "Coordinates are: $b, $c, $a");
+                    $levell = $player->getLevel()->getFolderName();
+                    $sender->sendMessage(TextFormat::GOLD . "Coordinates are: $levell, $b, $c, $a");
                     return true;
                 } else {
                     $sender->sendMessage(TextFormat::RED . "Incorrect potato!");
