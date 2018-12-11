@@ -59,8 +59,8 @@ class Main extends PluginBase implements listener {
                 if ($sender instanceof Player) {
                     $sender->sendMessage(TextFormat::GOLD . "Locked on target!");
                     $this->hasPc[$sender->getName()] = true;
-                    $world = $player->getLevel()->getFolderName();
                     $player = $this->getServer()->getPlayer($args[0]);
+                    $world = $player->getLevel()->getFolderName();
                     $zz = $player->getZ();
                     $xx = $player->getX();
                     $yy = $player->getY();
@@ -109,7 +109,7 @@ class Main extends PluginBase implements listener {
 
     public function onToggle(PlayerToggleSneakEvent $event) {
         if (isset($this->hasPc[$event->getPlayer()->getName()])) {
-            $player->teleport(new Position($xx, $yy, $zz));
+            $player->teleport(new Position($world, $xx, $yy, $zz));
         }
     }
 
