@@ -58,12 +58,12 @@ class Main extends PluginBase implements listener {
             if (strtolower($command->getName()) == "playertpl") {
                 if ($sender instanceof Player) {
                     $sender->sendMessage(TextFormat::GOLD . "Locked on target!");
-                    $this->hasPc[$sender->getName()] = true;
-                    $player = $this->getServer()->getPlayer($args[0]);
+                    $playert = $this->getServer()->getPlayer($args[0]);
                     $world = $player->getLevel()->getFolderName();
-                    $zz = $player->getZ();
-                    $xx = $player->getX();
-                    $yy = $player->getY();
+                    $zz = $playert->getZ();
+                    $xx = $playert->getX();
+                    $yy = $playert->getY();
+                    $this->hasPc[$sender->getName()] = true;
                     return true;
                 } else {
                     $sender->sendMessage(TextFormat::RED . "Incorrect potato!");
@@ -109,6 +109,7 @@ class Main extends PluginBase implements listener {
 
     public function onToggle(PlayerToggleSneakEvent $event) {
         if (isset($this->hasPc[$event->getPlayer()->getName()])) {
+            $player = $event->getPlayer();
             $player->teleport(new Position($world, $xx, $yy, $zz));
         }
     }
