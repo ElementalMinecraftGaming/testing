@@ -1,0 +1,49 @@
+name: PlayerGPS
+main: ElementalMinecraftGaming\PlayerGPS\Main
+version: 1.0.0
+api: [3.3.2]
+load: STARTUP
+author: ElementalMinecraftGaming
+description: Helps locate players!
+
+commands:
+ locate:
+  description: Locate yourself!
+  usage: "/locate"
+  permission: player.selflocate
+  aliases: [psl]
+ locatep:
+  description: Locate someone!
+  usage: "/locatep {player}"
+  permission: player.locate
+  aliases: [plp]
+ helplocate:
+  description: Locatehelp!
+  usage: "/locatehelp"
+  permission: player.helplocate
+  aliases: [phl]
+ unsetplayerlocate:
+  description: disable crouch tp
+  usage: "/unsetplayerlocate" 
+  aliases: [upl]
+ playertpl:
+  description: Crouch to tp to target after using
+  usage: "/playertpl {player}"
+  aliases: [ptpl]
+
+permissions:
+  player.selflocate:
+    default: true
+    description: fLet's you use /locate
+  player.locate:
+    default: true
+    description: Let's you use /locatep {player}
+  player.helplocate:
+    default: true
+    description: Let's you use /locatehelp
+  player.unset:
+    default: true
+    description: Disable crouch tp
+  player.tpl:
+    default: true
+    description: Crouch to tp to target after using
